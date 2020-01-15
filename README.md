@@ -1,31 +1,38 @@
 # CIS407-Java
 Strayer Java Programming II
 
-import java.util.Scanner;
-
-public class TriangleArea {
-   public static void main(String[] args) {
-      Scanner scnr = new Scanner(System.in);
-      
-      Triangle triangle1 = new Triangle();
-      Triangle triangle2 = new Triangle();
-      
-      triangle1.setBase(scnr.nextDouble());
-      triangle1.setHeight(scnr.nextDouble());
-      triangle2.setBase(scnr.nextDouble());
-      triangle2.setHeight(scnr.nextDouble());
-      
-      Triangle larger=null;
-       // check the condition.
-       if(triangle1.getArea()>triangle2.getArea())
-       larger=triangle1;
+public class Artist {
+   private String artistName;               //private fields
+   private int birthYear,deathYear;
+   public Artist()                   //default constructor
+   {
+       artistName="None";
+       birthYear=0;
+       deathYear=0;
+   }
+   public Artist(String artistName,int birthYear,int deathYear) //second constructor to initialize private fields
+   {
+       this.artistName=artistName;
+       this.birthYear=birthYear;
+       this.deathYear=deathYear;
+   }
+   public String getName()                         
+   {
+       return artistName;
+   }
+   public int getBirthYear()
+   {                                               
+       return birthYear;
+   }
+   public int getDeathYear()
+   {                                               
+       return deathYear;
+   }
+   public void printInfo()
+   {                                    
+       if(deathYear!=-1)
+           System.out.println("Artist: "+artistName+" ("+birthYear+"-"+deathYear+")");      
        else
-       larger=triangle2;
-       // Display the result on console.
-       System.out.println("Triangle with larger area:");
-       // Call the method.
-       larger.printInfo();
-     
-      
+           System.out.println("Artist: "+artistName+", born "+birthYear);
    }
 }
