@@ -37,3 +37,48 @@ public class PetInformation {
        System.out.println("   Breed: "+myDog.getDogBreed());
    }
 }
+
+//  pet.java
+
+public class Pet {
+   protected String petName;
+   protected int petAge;
+
+   public String getPetName() {
+       return petName;
+   }
+
+   public void setPetName(String petName) {
+       this.petName = petName;
+   }
+
+   public int getPetAge() {
+       return petAge;
+   }
+
+   public void setPetAge(int petAge) {
+       this.petAge = petAge;
+   }
+
+   public void printInfo() {
+       System.out.println("Pet Information: ");
+       System.out.println("   Name: " + petName);
+       System.out.println("   Age: " + petAge);
+   }
+
+}
+
+// dog.java
+
+public class Dog extends Pet {
+   private String dogBreed;
+
+   public String getDogBreed() {
+       return dogBreed;
+   }
+
+   public void setDogBreed(String dogBreed) {
+       this.dogBreed = dogBreed;
+       
+   }
+}
