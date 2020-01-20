@@ -1,0 +1,39 @@
+pet info
+
+import java.util.Scanner;
+
+public class PetInformation {
+
+   public static void main(String[] args) {
+
+       /*
+       * Creating an Scanner class object which is used to get the inputs
+       * entered by the user
+       */
+       Scanner scnr = new Scanner(System.in);
+
+       Pet myPet=new Pet();
+       Dog myDog=new Dog();
+      
+       String petName,dogName,dogBreed;
+       int petAge,dogAge;
+      
+       //Getting the input entered by the user
+       petName=scnr.nextLine();
+       petAge=scnr.nextInt();
+       scnr.nextLine();
+       dogName=scnr.next();
+       dogAge=scnr.nextInt();
+       scnr.nextLine();
+       dogBreed=scnr.nextLine();
+  
+       myPet.setPetName(petName);
+       myPet.setPetAge(petAge);
+       myPet.printInfo();
+       myDog.setPetName(dogName);
+       myDog.setPetAge(dogAge);
+       myDog.setDogBreed(dogBreed);
+       myDog.printInfo();
+       System.out.println("   Breed: "+myDog.getDogBreed());
+   }
+}
