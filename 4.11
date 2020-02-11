@@ -1,0 +1,138 @@
+StatePair.java
+
+public class StatePair<Type1 extends Comparable<Type1>, Type2 extends Comparable<Type2>>{
+
+private Type1 value1;
+
+private Type2 value2;
+
+public StatePair(Type1 val1, Type2 val2){
+
+value1 = val1;
+
+value2 = val2;
+
+}
+
+/**
+
+* @param value1 the value1 to set
+
+*/
+
+public void setValue1(Type1 value1) {
+
+this.value1 = value1;
+
+}
+
+/**
+
+* @param value2 the value2 to set
+
+*/
+
+public void setValue2(Type2 value2) {
+
+this.value2 = value2;
+
+}
+
+/**
+
+* @return the value1
+
+*/
+
+public Type1 getValue1() {
+
+return value1;
+
+}
+
+/**
+
+* @return the value2
+
+*/
+
+public Type2 getValue2() {
+
+return value2;
+
+}
+
+public void printInfo(){
+
+System.out.println(value1+": "+value2);
+
+}
+
+}
+
+
+StatePopulations.java
+
+public class StatePopulations{
+
+//Copy and Paste methods here...
+
+public static void main(String[] args) throws IOException {
+
+Scanner scnr = new Scanner(System.in);
+
+FileInputStream fileByteStream = null;
+
+Scanner inFS = null;
+
+int myZipCode;
+
+int i;
+
+ArrayList<StatePair<Integer, String>> zipCodeState = new ArrayList<StatePair<Integer, String>>();
+
+ArrayList<StatePair<String, String>> abbrevState = new ArrayList<StatePair<String, String>>();
+
+ArrayList<StatePair<String, Integer>> statePopulation = new ArrayList<StatePair<String, Integer>>();
+
+//Fill the three ArrayLists
+
+//copy and paste statements here between these two comments
+
+
+
+//Read in ZIP code from user
+
+myZipCode = scnr.nextInt();
+
+String stateAbbr = null;
+
+for(i=0; i<zipCodeState.size(); ++i){
+
+if(zipCodeState.get(i).getValue1()==myZipCode)
+
+stateAbbr = zipCodeState.get(i).getValue2();
+
+}
+
+String stateName = null;
+
+for(i=0; i<abbrevState.size(); ++i){
+
+if(abbrevState.get(i).getValue1().equals(stateAbbr))
+
+stateName = abbrevState.get(i).getValue2();
+
+}
+
+for(i=0; i<statePopulation.size(); ++i){
+
+if(statePopulation.get(i).getValue1().equals(stateName))
+
+statePopulation.get(i).printInfo();
+
+}
+
+}
+
+}
