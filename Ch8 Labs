@@ -1,0 +1,274 @@
+8.6 LAB: Inserting an integer in sorted order (singly-linked list)
+
+Given main() and an IntNode class, complete the IntList class (a linked list of IntNodes) by writing the insertInAscendingOrder() method
+that inserts a new IntNode into the IntList in ascending order.
+
+
+public class IntList {
+
+// Linked list nodes
+
+public IntNode headNode;
+
+public IntNode tailNode;
+
+public IntList() {
+
+// Front of nodes list
+
+headNode = null;
+
+tailNode = null;
+
+}
+
+// prepend
+
+public void prepend(IntNode newNode) {
+
+if (headNode == null) { // list empty
+
+headNode = newNode;
+
+tailNode = newNode;
+
+} else {
+
+newNode.nextNode = headNode;
+
+headNode = newNode;
+
+}
+
+}
+
+// insertAfter
+
+public void insertAfter(IntNode curNode, IntNode newNode) {
+
+if (headNode == null) { // List empty
+
+headNode = newNode;
+
+tailNode = newNode;
+
+} else if (curNode == tailNode) { // Insert after tail
+
+tailNode.nextNode = newNode;
+
+tailNode = newNode;
+
+} else {
+
+newNode.nextNode = curNode.nextNode;
+
+curNode.nextNode = newNode;
+
+}
+
+}
+
+public void insertInAscendingOrder(IntNode newNode) {
+
+if (headNode == null || headNode.dataVal >= newNode.dataVal)
+
+{
+
+newNode.nextNode = headNode;
+
+headNode = newNode;
+
+tailNode = newNode;
+
+}
+
+else
+
+{
+
+IntNode node = headNode;
+
+while (node.nextNode!=null && node.nextNode.dataVal < newNode.dataVal)
+
+{
+
+node = node.nextNode;
+
+}
+
+newNode.nextNode = node.nextNode;
+
+node.nextNode = newNode;
+
+}
+
+}
+
+public void printIntList() {
+
+IntNode curNode;
+
+curNode = headNode;
+
+while (curNode != null) {
+
+curNode.printNodeData();
+
+System.out.print(" ");
+
+curNode = curNode.nextNode;
+
+}
+
+}
+
+}
+************************************************************************************
+
+8.7 LAB: Finding an integer in a list (singly-linked list)
+
+Given main() and an IntNode class, complete the IntList class (a linked list of IntNodes) by writing the insertInAscendingOrder() method
+that inserts a new IntNode into the IntList in ascending order.
+
+public class IntList {
+
+// Linked list nodes
+
+public IntNode headNode;
+
+public IntNode tailNode;
+
+public IntList() {
+
+// Front of nodes list
+
+headNode = null;
+
+tailNode = null;
+
+}
+
+// TODO: Write append method
+
+// prepend
+
+public void append(IntNode newNode) {
+
+if (headNode == null) { // list empty
+
+newNode.nodePos = 1;
+
+headNode = newNode;
+
+tailNode = newNode;
+
+} else {
+
+IntNode curr = headNode;
+
+while(curr.nextNode != null)
+
+curr = curr.nextNode;
+
+newNode.nodePos = curr.nodePos + 1;
+
+curr.nextNode = newNode;
+
+tailNode = newNode;
+
+}
+
+}
+
+// prepend
+
+public void prepend(IntNode newNode) {
+
+if (headNode == null) { // list empty
+
+headNode = newNode;
+
+tailNode = newNode;
+
+} else {
+
+newNode.nextNode = headNode;
+
+headNode = newNode;
+
+}
+
+}
+
+// insertAfter
+
+public void insertAfter(IntNode curNode, IntNode newNode) {
+
+if (headNode == null) { // List empty
+
+headNode = newNode;
+
+tailNode = newNode;
+
+} else if (curNode == tailNode) { // Insert after tail
+
+tailNode.nextNode = newNode;
+
+tailNode = newNode;
+
+} else {
+
+newNode.nextNode = curNode.nextNode;
+
+curNode.nextNode = newNode;
+
+}
+
+}
+
+// TODO: Write search method that locates node with the same data value
+
+// (dataVal)
+
+// as key and sets each node's position (nodePos)
+
+public void printIntList() {
+
+IntNode curNode;
+
+curNode = headNode;
+
+while (curNode != null) {
+
+curNode.printNodeData();
+
+System.out.print(" ");
+
+curNode = curNode.nextNode;
+
+}
+
+}
+
+public IntNode search(int searchNum) {
+
+// TODO Auto-generated method stub
+
+IntNode curNode;
+
+curNode = headNode;
+
+while (curNode != null) {
+
+if(curNode.dataVal==searchNum)
+
+return curNode;
+
+curNode = curNode.nextNode;
+
+}
+
+return null;
+
+}
+}
